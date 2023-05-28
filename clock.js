@@ -12,7 +12,7 @@ setInterval(() => {
     document.getElementById('secondOne').src = `digits/${seconds[1]}.png`;
 }, 1000);
 
-document.body.addEventListener('click', () => {
+document.body.addEventListener('touchstart', () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
     }
