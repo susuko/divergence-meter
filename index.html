@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript Clock</title>
+    <title>DivergenceMeter</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        #clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #clock img {
+            margin: 0 5px;
+        }
+    </style>
+    <script src="keep.js" defer></script>
 </head>
 <body>
-    <h1>My JavaScript Clock</h1>
-    <p id="clock"></p>
+    <div id="clock">
+        <img id="hour-ten" src="" alt="hour-ten">
+        <img id="hour-one" src="" alt="hour-one">
+        <img id="minute-ten" src="" alt="minute-ten">
+        <img id="minute-one" src="" alt="minute-one">
+        <img id="second-ten" src="" alt="second-ten">
+        <img id="second-one" src="" alt="second-one">
+    </div>
 
     <script>
         function showTime(){
@@ -14,15 +40,20 @@
             var m = date.getMinutes(); 
             var s = date.getSeconds(); 
             
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
-        
-            var time = h + ":" + m + ":" + s;
-        
-            document.getElementById("clock").innerText = time;
-            document.getElementById("clock").textContent = time;
-        
+            var ht = Math.floor(h / 10);
+            var ho = h % 10;
+            var mt = Math.floor(m / 10);
+            var mo = m % 10;
+            var st = Math.floor(s / 10);
+            var so = s % 10;
+            
+            document.getElementById("hour-ten").src = `digits/${ht}.png`;
+            document.getElementById("hour-one").src = `digits/${ho}.png`;
+            document.getElementById("minute-ten").src = `digits/${mt}.png`;
+            document.getElementById("minute-one").src = `digits/${mo}.png`;
+            document.getElementById("second-ten").src = `digits/${st}.png`;
+            document.getElementById("second-one").src = `digits/${so}.png`;
+
             setTimeout(showTime, 1000);
         }
         
