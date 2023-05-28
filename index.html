@@ -16,9 +16,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
+            max-width: 90vmin;
         }
         #clock img {
-            margin: 0 5px;
+            width: 10%;
+            height: auto;
         }
         #fullscreen-button {
             position: absolute;
@@ -81,6 +84,14 @@
                 }
             }
         });
+
+        document.onfullscreenchange = function (event) { 
+            if (document.fullscreenElement) {
+                document.getElementById('fullscreen-button').style.display = 'none';
+            } else {
+                document.getElementById('fullscreen-button').style.display = 'block';
+            }
+        };
     </script>
 </body>
 </html>
