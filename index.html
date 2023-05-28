@@ -20,6 +20,17 @@
         #clock img {
             margin: 0 5px;
         }
+        #fullscreen-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            color: black;
+            background-color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
     <script src="keep.js" defer></script>
 </head>
@@ -32,6 +43,8 @@
         <img id="second-ten" src="" alt="second-ten">
         <img id="second-one" src="" alt="second-one">
     </div>
+
+    <button id="fullscreen-button">Go Fullscreen</button>
 
     <script>
         function showTime(){
@@ -58,6 +71,16 @@
         }
         
         showTime();
+
+        document.getElementById("fullscreen-button").addEventListener('click', function() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen(); 
+                }
+            }
+        });
     </script>
 </body>
 </html>
