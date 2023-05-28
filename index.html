@@ -1,99 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DivergenceMeter</title>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: white;
-            overflow: hidden;
-        }
-        #clock {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-        }
-        #clock img {
-            width: calc(100vw / 6);
-            height: 100vh;
-            object-fit: contain;
-        }
-        #fullscreen-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            color: black;
-            background-color: white;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-    </style>
-    <script src="keep.js" defer></script>
+    <title>Divergence Meter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="clock">
-        <img id="hour-ten" src="" alt="hour-ten">
-        <img id="hour-one" src="" alt="hour-one">
-        <img id="minute-ten" src="" alt="minute-ten">
-        <img id="minute-one" src="" alt="minute-one">
-        <img id="second-ten" src="" alt="second-ten">
-        <img id="second-one" src="" alt="second-one">
+    <div class="clock">
+        <img id="hourTen" src="digits/0.png">
+        <img id="hourOne" src="digits/0.png">
+        <img id="period1" src="digits/11.png">
+        <img id="minuteTen" src="digits/0.png">
+        <img id="minuteOne" src="digits/0.png">
+        <img id="period2" src="digits/11.png">
+        <img id="secondTen" src="digits/0.png">
+        <img id="secondOne" src="digits/0.png">
     </div>
-
-    <button id="fullscreen-button">Go Fullscreen</button>
-
-    <script>
-        function showTime(){
-            var date = new Date();
-            var h = date.getHours(); 
-            var m = date.getMinutes(); 
-            var s = date.getSeconds(); 
-            
-            var ht = Math.floor(h / 10);
-            var ho = h % 10;
-            var mt = Math.floor(m / 10);
-            var mo = m % 10;
-            var st = Math.floor(s / 10);
-            var so = s % 10;
-            
-            document.getElementById("hour-ten").src = `digits/${ht}.png`;
-            document.getElementById("hour-one").src = `digits/${ho}.png`;
-            document.getElementById("minute-ten").src = `digits/${mt}.png`;
-            document.getElementById("minute-one").src = `digits/${mo}.png`;
-            document.getElementById("second-ten").src = `digits/${st}.png`;
-            document.getElementById("second-one").src = `digits/${so}.png`;
-
-            setTimeout(showTime, 1000);
-        }
-        
-        showTime();
-
-        document.getElementById("fullscreen-button").addEventListener('click', function() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen(); 
-                }
-            }
-        });
-
-        document.onfullscreenchange = function (event) { 
-            if (document.fullscreenElement) {
-                document.getElementById('fullscreen-button').style.display = 'none';
-            } else {
-                document.getElementById('fullscreen-button').style.display = 'block';
-            }
-        };
-    </script>
+    <button id="fullscreenBtn">Go Fullscreen</button>
+    <script src="keep.js" defer></script>
+    <script src="clock.js" defer></script>
 </body>
 </html>

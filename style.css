@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.clock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+#fullscreenBtn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
