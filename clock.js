@@ -12,20 +12,8 @@ setInterval(() => {
     document.getElementById('secondOne').src = `digits/${seconds[1]}.png`;
 }, 1000);
 
-document.getElementById('fullscreenBtn').addEventListener('click', () => {
+document.body.addEventListener('click', () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-    }
-});
-
-document.addEventListener('fullscreenchange', () => {
-    if (document.fullscreenElement) {
-        document.getElementById('fullscreenBtn').style.display = 'none';
-    } else {
-        document.getElementById('fullscreenBtn').style.display = 'block';
     }
 });

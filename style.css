@@ -20,14 +20,3 @@ body {
     height: 100vh;
     object-fit: contain;
 }
-#fullscreenBtn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px;
-    color: black;
-    background-color: white;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
